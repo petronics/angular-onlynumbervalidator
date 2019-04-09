@@ -13,8 +13,12 @@ export class AppComponent implements OnInit  {
   rcForm: FormGroup;
 
   ngOnInit(): void {
+    // init reactive form
     this.rcForm = new FormGroup({
       rosescount: new FormControl(null, [CustomValidators.onlyNumeric])
     });
+    // init template driven control
+    this.rosesCount = null;
   }
+
 }
