@@ -1,4 +1,17 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<h1>Reusable validator - Template driven & Model driven</h1>
+
+<h2>Template driven Form</h2>
+<form #tplForm="ngForm">
+  No. of roses: <input type="text" name="rosescount" [(ngModel)]="rosesCount" #tplCtrl="ngModel">
+  <p>Form data: {{ tplForm.value | json}}</p>
+  <p>Form validity: {{ tplForm.valid | json}}</p>
+  <p>Control errors: {{ tplCtrl.errors | json}}</p>
+</form>
+
+<h2>Model driven Form</h2>
+<form [formGroup]="rcForm">
+  No. of roses: <input type="text" formControlName="rosescount">
+  <p>Form data: {{ rcForm.value | json}}</p>
+  <p>Form validity: {{ rcForm.valid | json}}</p>
+  <p>Control errors: {{ rcForm.get('rosescount').errors | json}}</p>
+</form>
