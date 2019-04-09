@@ -2,7 +2,7 @@
 
 <h2>Template driven Form</h2>
 <form #tplForm="ngForm">
-  No. of roses: <input type="text" name="rosescount" [(ngModel)]="rosesCount" #tplCtrl="ngModel">
+  No. of roses: <input type="text" name="rosescount" [(ngModel)]="rosesCount" #tplCtrl="ngModel" only-numeric>
   <p>Form data: {{ tplForm.value | json}}</p>
   <p>Form validity: {{ tplForm.valid | json}}</p>
   <p>Control errors: {{ tplCtrl.errors | json}}</p>

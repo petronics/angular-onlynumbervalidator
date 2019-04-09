@@ -8,3 +8,16 @@ export class CustomValidators {
     return valid === true ? null : { onlyNumeric: false };
   }
 }
+
+@Directive({
+  selector: 'only-numeric',
+  providers: [
+    {provide: NG_VALIDATORS, useClass: OnlyNumericValidatorDirective, multi: true}
+  ]
+})
+export class OnlyNumericValidatorDirective implements Validator{
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    return CustomValidators.onlyNumeric(control);
+  }
+}

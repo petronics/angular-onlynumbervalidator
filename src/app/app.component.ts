@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { CustomValidators } from './onlynumeric-validator';
 
 @Component({
   selector: 'my-app',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit  {
 
   ngOnInit(): void {
     this.rcForm = new FormGroup({
-      rosescount: new FormControl(null)
+      rosescount: new FormControl(null, [CustomValidators.onlyNumeric])
     });
   }
 }
