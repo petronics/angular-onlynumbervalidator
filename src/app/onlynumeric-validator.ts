@@ -10,7 +10,7 @@ export class CustomValidators {
 }
 
 @Directive({
-  selector: 'only-numeric',
+  selector: '[only-numeric]',
   providers: [
     {provide: NG_VALIDATORS, useClass: OnlyNumericValidatorDirective, multi: true}
   ]
